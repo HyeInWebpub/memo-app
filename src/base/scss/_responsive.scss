@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@mixin hover-device {
+  @media (hover: hover) and (pointer: fine) {@content;}
+}
+
+@mixin mediaSize($breakpoint){
+  @if $breakpoint == medium {
+    @media (1150px >= width > 750px){@content;}
+  }
+  @else if $breakpoint == small {
+    @media (750px >= width){@content;}
+  }
+}

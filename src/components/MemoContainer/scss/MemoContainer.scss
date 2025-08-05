@@ -1,0 +1,59 @@
+@charset "utf-8";
+@use "../../../base/scss/variables";
+
+.MemoContainer{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 2rem);
+    background-color: #fff;
+    margin: 1rem;
+    
+    .noMemo{
+        text-align: center;
+        color: variables.$icon_color;
+        margin-top: calc(2rem + 50px);
+
+        .icon_noMemo{
+            font-size: 1.5rem;
+        }
+        
+        p{
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1rem 0 0.4rem 0;
+        }
+
+        em{
+            font-size: 0.8rem;
+        }
+    }
+
+
+    .memo_title{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        background-color: transparent;
+        font-size: 1.6rem;
+    }
+
+    .memo_content{
+        flex-grow: 1;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+        border: none;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        background-color: transparent;
+        resize: none;
+        overflow-y: unset;
+        
+        &:focus{
+            outline: none;
+        }
+    }
+}

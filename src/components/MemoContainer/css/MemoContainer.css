@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* ===== 컬러 ===== */
+/* 모노톤 */
+/* 메인컬러 */
+/* 서브컬러 */
+/* 요소별 컬러 */
+/* ===== 믹스인 ===== */
+/* 폰트어썸 버튼 */
+.MemoContainer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: calc(100vh - 2rem);
+  background-color: #fff;
+  margin: 1rem;
+}
+.MemoContainer .noMemo {
+  text-align: center;
+  color: #989fff;
+  margin-top: calc(2rem + 50px);
+}
+.MemoContainer .noMemo .icon_noMemo {
+  font-size: 1.5rem;
+}
+.MemoContainer .noMemo p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem 0 0.4rem 0;
+}
+.MemoContainer .noMemo em {
+  font-size: 0.8rem;
+}
+.MemoContainer .memo_title {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: transparent;
+  font-size: 1.6rem;
+}
+.MemoContainer .memo_content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1rem;
+  border: none;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  background-color: transparent;
+  resize: none;
+  overflow-y: unset;
+}
+.MemoContainer .memo_content:focus {
+  outline: none;
+}

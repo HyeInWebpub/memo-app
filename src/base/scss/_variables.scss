@@ -1,0 +1,53 @@
+@charset "utf-8";
+@use "./responsive";
+
+
+/* ===== 컬러 ===== */
+
+/* 모노톤 */
+$black: #333;
+$lightGrey:#f9f8fd;
+$lightGrey_opa95:rgb(249, 248, 253, 0.95);
+
+/* 메인컬러 */
+$primary_color: #989fff;
+$primary_color_opa60: rgba(152, 159, 255, 0.6);
+$primary_color_opa30: rgba(152, 159, 255, 0.3);
+$primary_color_opa20: rgba(152, 159, 255, 0.2);
+
+/* 서브컬러 */
+$pink: #FFE4FF;
+$pink_opa40: rgba(255, 228, 255, 0.4);
+
+/* 요소별 컬러 */
+// 사이드바 배경
+$sideBar_bg:$lightGrey;
+$sideBar_bg2:$lightGrey_opa95;
+// 아이콘
+$icon_color:$primary_color;
+$icon_color_hover:$primary_color_opa20;
+
+
+
+
+/* ===== 믹스인 ===== */
+/* 폰트어썸 버튼 */
+@mixin btn_fa_Icon{
+    width: 1.8rem;
+    height: 1.8rem;            
+    line-height: 1.5rem;             
+    border: 1px solid $icon_color;
+    font-size: 1rem;
+    color: $icon_color;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.1s;
+
+    @include responsive.hover-device{
+        &:hover{
+            background-color: $icon_color_hover;
+            color: $icon_color;
+        }
+    }
+}

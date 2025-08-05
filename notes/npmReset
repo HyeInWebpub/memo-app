@@ -1,0 +1,4 @@
+rm -r -fo node_modules
+rm -fo package-lock.json
+npm cache clean --force
+npm install

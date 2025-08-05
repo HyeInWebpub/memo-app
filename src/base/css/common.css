@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* ===== 컬러 ===== */
+/* 모노톤 */
+/* 메인컬러 */
+/* 서브컬러 */
+/* 요소별 컬러 */
+/* ===== 믹스인 ===== */
+/* 폰트어썸 버튼 */
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+@media (1150px >= width > 750px) {
+  .App {
+    width: 100%;
+  }
+}
+.App .btnBar {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.App .btnBar button.btn_showSideBar {
+  margin: 1rem 0.5rem 1rem 1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  line-height: 1.5rem;
+  border: 1px solid #989fff;
+  font-size: 1rem;
+  color: #989fff;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .App .btnBar button.btn_showSideBar:hover {
+    background-color: rgba(152, 159, 255, 0.2);
+    color: #989fff;
+  }
+}
+.App .btnBar.hide {
+  opacity: 0;
+}
+.App .btnBar.hide button.btn_showSideBar {
+  display: none;
+}

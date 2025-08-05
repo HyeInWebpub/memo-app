@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/* ===== 컬러 ===== */
+/* 모노톤 */
+/* 메인컬러 */
+/* 서브컬러 */
+/* 요소별 컬러 */
+/* ===== 믹스인 ===== */
+/* 폰트어썸 버튼 */
+.MemoSideBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 19rem;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.MemoSideBar.hide {
+  width: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.MemoSideBar.show {
+  width: 19rem;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.MemoSideBar .btnBox {
+  width: 100%;
+  margin-bottom: 0.8rem;
+  text-align: right;
+}
+.MemoSideBar .btnBox button.btn_hideSideBar {
+  width: 1.8rem;
+  height: 1.8rem;
+  line-height: 1.5rem;
+  border: 1px solid #989fff;
+  font-size: 1rem;
+  color: #989fff;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .MemoSideBar .btnBox button.btn_hideSideBar:hover {
+    background-color: rgba(152, 159, 255, 0.2);
+    color: #989fff;
+  }
+}
+.MemoSideBar .innerBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  width: 100%;
+  height: calc(100vh - 5rem);
+  overflow: hidden;
+  background-color: #f9f8fd;
+  padding: 0 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 2rem;
+  border: 2px solid rgba(152, 159, 255, 0.3);
+}
+.MemoSideBar .innerBox .sidebarHeader {
+  width: 100%;
+}
+.MemoSideBar .innerBox .sidebarHeader .logoBox {
+  text-align: center;
+  margin: 3rem 0 2.5rem 0;
+}
+.MemoSideBar .innerBox .sidebarHeader .logoBox h1.logo {
+  background: no-repeat url(../../../../public/logo_top.png);
+  width: 46px;
+  height: 50px;
+  margin: 0 auto;
+}
+.MemoSideBar .innerBox .sidebarHeader .logoBox h2 {
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+  color: #989fff;
+}
+.MemoSideBar .innerBox .MemoSideBarList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: 2.8rem;
+  gap: 4px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Webkit */
+}
+.MemoSideBar .innerBox .MemoSideBarList::-webkit-scrollbar {
+  width: 4px;
+}
+.MemoSideBar .innerBox .MemoSideBarList::-webkit-scrollbar-track {
+  background: transparent;
+}
+.MemoSideBar .innerBox .MemoSideBarList::-webkit-scrollbar-thumb {
+  background-color: rgba(152, 159, 255, 0.3);
+  border-radius: 4px;
+}
+.MemoSideBar .innerBox .MemoSideBarList::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.MemoSideBar .innerBox .MemoSideBarList .noMemo {
+  text-align: center;
+  color: #333;
+}
+.MemoSideBar .innerBox .MemoSideBarList .noMemo p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.MemoSideBar .innerBox .MemoSideBarList .MemoItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 95%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.MemoSideBar .innerBox .MemoSideBarList .MemoItem .title {
+  min-width: calc(100% - 30px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.MemoSideBar .innerBox .MemoSideBarList .MemoItem .title .bullet {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  background-color: #989fff;
+}
+.MemoSideBar .innerBox .MemoSideBarList .MemoItem .title .text {
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.MemoSideBar .innerBox .MemoSideBarList .MemoItem button.btn_delete {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30px;
+          flex: 0 0 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #989fff;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+@media (1150px >= width > 750px) {
+  .MemoSideBar .innerBox .MemoSideBarList .MemoItem button.btn_delete {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media (750px >= width) {
+  .MemoSideBar .innerBox .MemoSideBarList .MemoItem button.btn_delete {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .MemoSideBar .innerBox .MemoSideBarList .MemoItem:hover {
+    background-color: rgba(255, 228, 255, 0.4);
+  }
+  .MemoSideBar .innerBox .MemoSideBarList .MemoItem:hover button.btn_delete {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.MemoSideBar .innerBox .MemoSideBarList .MemoItem.selected {
+  background-color: #FFE4FF;
+}
+.MemoSideBar .innerBox .sideBarFooter {
+  text-align: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 2.6rem;
+          flex: 0 0 2.6rem;
+}
+.MemoSideBar .innerBox .sideBarFooter button.btn_add {
+  width: 2.6rem;
+  height: 2.6rem;
+  line-height: 2rem;
+  border: 1px solid #989fff;
+  border-radius: 50%;
+  background-color: #989fff;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  margin: 2rem;
+}
+@media (hover: hover) and (pointer: fine) {
+  .MemoSideBar .innerBox .sideBarFooter button.btn_add:hover {
+    opacity: 0.7;
+  }
+}
+@media (750px >= width) {
+  .MemoSideBar {
+    position: absolute;
+    background-color: rgba(249, 248, 253, 0.95);
+  }
+  .MemoSideBar .MemoSideBarList .MemoItem button.btn_delete {
+    display: block;
+  }
+}

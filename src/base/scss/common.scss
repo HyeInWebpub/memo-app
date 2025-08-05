@@ -1,0 +1,32 @@
+@charset "utf-8";
+@use "./variables";
+@use "./responsive";
+
+body{height: 100vh; overflow: hidden;}
+.App{
+    display: flex;
+    height: 100%;
+    position: relative;
+
+
+    @include responsive.mediaSize(medium){
+        width: 100%;
+    }
+
+
+    .btnBar{
+        opacity: 1;
+        transition: opacity 0.5s;
+
+        button.btn_showSideBar{
+            margin: 1rem 0.5rem 1rem 1rem;
+            @include variables.btn_fa_Icon;
+        }
+
+        &.hide{
+            opacity: 0;
+            button.btn_showSideBar{display: none};
+        }
+
+    }
+}

@@ -1,0 +1,239 @@
+@charset "utf-8";
+@use "../../../base/scss/variables";
+@use "../../../base/scss/responsive";
+
+@mixin sidebar_visible{
+    width: 19rem;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.MemoSideBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 01rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: all 0.3s ease-in-out;
+    @include sidebar_visible();
+
+    &.hide{
+        width: 0;
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &.show{
+        @include sidebar_visible();
+    }
+
+    .btnBox{
+        width: 100%;
+        margin-bottom: 0.8rem;
+        text-align: right;
+
+        button.btn_hideSideBar{
+            @include variables.btn_fa_Icon();
+        }
+    }
+
+
+    .innerBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1 1 0;
+        width: 100%;
+        height: calc(100vh - 5rem);
+        overflow: hidden;
+        background-color: variables.$sideBar_bg;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        border-radius: 2rem;
+        border: 2px solid variables.$primary_color_opa30;
+    
+        .sidebarHeader{
+            width: 100%;
+    
+            .logoBox{
+                text-align: center;
+                margin: 3rem 0 2.5rem 0;
+    
+                h1.logo{
+                    background: no-repeat url(../../../../public/logo_top.png);
+                    width: 46px;
+                    height: 50px;
+                    margin: 0 auto;
+                }
+        
+                h2{
+                    font-size: 0.7rem;
+                    margin-top: 0.5rem;
+                    color: variables.$primary_color;
+                }
+            }
+        }
+            
+    
+        .MemoSideBarList{
+            display: flex;
+            width: 100%;
+            min-height: 2.8rem;
+            gap: 4px;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+    
+            /* Webkit */
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: variables.$primary_color_opa30;
+                border-radius: 4px;
+            }
+            &::-webkit-scrollbar-button {
+                display: none;
+                height: 0;
+                width: 0;
+            }
+    
+            .noMemo{
+                text-align: center;
+                color: variables.$black;
+                
+                p{
+                    font-size: 1rem;
+                    font-weight: 400;
+                    line-height: 1.5;
+                }
+            }
+    
+    
+            .MemoItem{
+                display: flex;
+                width: 95%;
+                justify-content: space-between;
+                border-radius: 30px;
+                transition: all 0.3s;
+    
+                .title{
+                    min-width: calc(100% - 30px);
+                    display: flex;
+                    align-items: center;
+    
+                    .bullet{
+                        width: 0.4rem;
+                        height: 0.4rem;
+                        border-radius: 50%;
+                        margin: 0 0.5rem;
+                        background-color: variables.$primary_color;
+                    }
+        
+                    .text{
+                        width: 100%;
+                        height: 2rem;
+                        line-height: 2rem;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        cursor: pointer;
+                    }
+                }
+    
+                button.btn_delete{
+                    flex: 0 0 30px;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: 500;
+                    color: variables.$primary_color;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity 0.2s;
+    
+                    @include responsive.mediaSize(medium){
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                    @include responsive.mediaSize(small){
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
+    
+                @include responsive.hover-device{
+                    &:hover{
+                        background-color: variables.$pink_opa40;
+                    }
+    
+                    &:hover button.btn_delete{
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
+    
+                &.selected{
+                    background-color:  variables.$pink;
+    
+                }
+            }
+        }
+    
+        .sideBarFooter{
+            text-align: center;
+            flex: 0 0 2.6rem;
+    
+            button.btn_add{
+                width: 2.6rem;
+                height: 2.6rem;
+                line-height: 2rem;
+                border: 1px solid variables.$primary_color;
+                border-radius: 50%;
+                background-color: variables.$primary_color;
+                font-size: 1rem;    
+                font-weight: 600;              
+                color: #fff;
+                cursor: pointer;
+                transition: all 0.2s;
+                margin: 2rem;
+    
+                @include responsive.hover-device{
+                    &:hover{
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    
+        
+        
+    }
+    
+    @include responsive.mediaSize(small){
+        &{
+            position: absolute;
+            background-color: variables.$sideBar_bg2;
+
+            .MemoSideBarList .MemoItem button.btn_delete{
+                display: block;
+            }
+
+
+        }
+        
+    }
+}
