@@ -6,6 +6,7 @@ function MemoSideBarList({
   selectedMemoIndex,
   bottomRef,
   deleteMemo,
+  onClickItem,
 }) {
   if (memos.length === 0) {
     return (
@@ -24,8 +25,12 @@ function MemoSideBarList({
         <MemoItem
           key={index}
           onClickItem={() => {
-            console.log(`memo ${index} clicked`);
+            // 인덱스 변경
+            // console.log(`memo ${index} clicked`);
             setSelectedMemoIndex(index);
+
+            // 사이드바 닫기
+            onClickItem();
           }}
           isSelected={index === selectedMemoIndex}
           onClickDelete={() => {

@@ -116,16 +116,18 @@ export default function App() {
   };
 
   /* === 사이드바 열고닫기 === */
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true); // 사이드바를 보여줄것인가
-
-  const isMedium = useMediaQuery({ query: BreakPoint.medium }); // 미디움 해상도인가
-  const isSmall = useMediaQuery({ query: BreakPoint.small }); // 스몰 해상도인가
-
+  // 사이드바를 보여줄것인가
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  // 미디움 해상도인가
+  const isMedium = useMediaQuery({ query: BreakPoint.medium });
+  // 스몰 해상도인가
+  const isSmall = useMediaQuery({ query: BreakPoint.small });
+  // MemoContainer, MemoItem 클릭시
   const containerOnClick = () => {
     if (isSmall) {
       setIsSidebarVisible(false);
     }
-  }; // MemoContainer 클릭시 실행할 함수
+  };
 
   return (
     <div className="App">
@@ -138,6 +140,7 @@ export default function App() {
         deleteMemo={confirmDelete}
         isVisible={isSidebarVisible}
         setIsVisible={setIsSidebarVisible}
+        onClickItem={containerOnClick}
       ></MemoSideBar>
 
       <div className={`btnBar ${isSidebarVisible && !isSmall ? "hide" : ""}`}>

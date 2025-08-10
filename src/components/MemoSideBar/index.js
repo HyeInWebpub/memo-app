@@ -15,6 +15,7 @@ function MemoSideBar({
   deleteMemo,
   isVisible,
   setIsVisible,
+  onClickItem,
 }) {
   return (
     <div className={`MemoSideBar ${isVisible ? "show" : "hide"}`}>
@@ -41,6 +42,7 @@ function MemoSideBar({
           selectedMemoIndex={selectedMemoIndex}
           bottomRef={bottomRef}
           deleteMemo={deleteMemo}
+          onClickItem={onClickItem}
         ></MemoSideBarList>
         <MemoSideBarFooter onClick={addMemo}></MemoSideBarFooter>
       </div>
