@@ -1,5 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import classNames from "classnames";
 
 const BreakPoint = {
   large: "(min-width : 1151px)",
@@ -7,24 +8,28 @@ const BreakPoint = {
   small: "(max-width : 750px)",
 };
 
-const MediaLarge = ({ children }) => {
+const Responsive = ({ children }) => {
   const isLarge = useMediaQuery({ query: BreakPoint.large });
-
-  return <div className="MediaLarge">{isLarge && children}</div>;
-};
-
-const MediaMedium = ({ children }) => {
-  const isMedium = useMediaQuery({
-    query: BreakPoint.medium,
-  });
-
-  return <div className="MediaMedium">{isMedium && children}</div>;
-};
-
-const MediaSmall = ({ children }) => {
+  const isMedium = useMediaQuery({ query: BreakPoint.medium });
   const isSmall = useMediaQuery({ query: BreakPoint.small });
 
-  return <div className="MediaSmall">{isSmall && children}</div>;
+  // 바로 아래 자식에게만 클래스 추가
+  return React.Children.map(children, (child) => {
+    if (React.isValidElement(child)) {
+      // child는 바로 아래 자식
+      // child가 React 컴포넌트나 JSX 태그인지를 확인
+
+      return React.cloneElement(child, {
+        className: classNames(child.props.className, {
+          MediaLarge: isLarge, // 붙일 클래스명: 조건
+          MediaMedium: isMedium,
+          MediaSmall: isSmall,
+        }),
+      });
+    } else {
+      return child;
+    }
+  });
 };
 
-export { BreakPoint, MediaLarge, MediaMedium, MediaSmall };
+export { BreakPoint, Responsive };

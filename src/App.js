@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { BreakPoint } from "./MediaQuery";
+import { BreakPoint, Responsive } from "./MediaQuery";
 import "./fontAwesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./base/css/reset.css";
@@ -118,8 +118,6 @@ export default function App() {
   /* === 사이드바 열고닫기 === */
   // 사이드바를 보여줄것인가
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-  // 미디움 해상도인가
-  const isMedium = useMediaQuery({ query: BreakPoint.medium });
   // 스몰 해상도인가
   const isSmall = useMediaQuery({ query: BreakPoint.small });
   // MemoContainer, MemoItem 클릭시
@@ -130,35 +128,37 @@ export default function App() {
   };
 
   return (
-    <div className="App">
-      <MemoSideBar
-        memos={memos}
-        setSelectedMemoIndex={setSelectedMemoIndex}
-        selectedMemoIndex={selectedMemoIndex}
-        addMemo={addMemo}
-        bottomRef={bottomRef}
-        deleteMemo={confirmDelete}
-        isVisible={isSidebarVisible}
-        setIsVisible={setIsSidebarVisible}
-        onClickItem={containerOnClick}
-      ></MemoSideBar>
+    <Responsive>
+      <div className="App">
+        <MemoSideBar
+          memos={memos}
+          setSelectedMemoIndex={setSelectedMemoIndex}
+          selectedMemoIndex={selectedMemoIndex}
+          addMemo={addMemo}
+          bottomRef={bottomRef}
+          deleteMemo={confirmDelete}
+          isVisible={isSidebarVisible}
+          setIsVisible={setIsSidebarVisible}
+          onClickItem={containerOnClick}
+        ></MemoSideBar>
 
-      <div className={`btnBar ${isSidebarVisible && !isSmall ? "hide" : ""}`}>
-        <button
-          className="btn_showSideBar"
-          onClick={() => {
-            setIsSidebarVisible(true);
-          }}
-        >
-          <FontAwesomeIcon icon="chevron-right"></FontAwesomeIcon>
-        </button>
+        <div className={`btnBar ${isSidebarVisible && !isSmall ? "hide" : ""}`}>
+          <button
+            className="btn_showSideBar"
+            onClick={() => {
+              setIsSidebarVisible(true);
+            }}
+          >
+            <FontAwesomeIcon icon="chevron-right"></FontAwesomeIcon>
+          </button>
+        </div>
+
+        <MemoContainer
+          memo={memos[selectedMemoIndex]}
+          setMemo={setMemo}
+          containerOnClick={containerOnClick}
+        ></MemoContainer>
       </div>
-
-      <MemoContainer
-        memo={memos[selectedMemoIndex]}
-        setMemo={setMemo}
-        containerOnClick={containerOnClick}
-      ></MemoContainer>
-    </div>
+    </Responsive>
   );
 }
