@@ -9,6 +9,10 @@ body{height: 100vh; overflow: hidden;}
     position: relative;
 
 
+    @include responsive.mediaSize(large){
+        width: responsive.$range2;
+        margin: 0 auto;
+    }
     @include responsive.mediaSize(medium){
         width: 100%;
     }

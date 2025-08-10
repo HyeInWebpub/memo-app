@@ -1,17 +1,22 @@
 @charset "utf-8";
 
+$range1 : 1151px;
+$range2 : 1150px;
+$range3 : 751px;
+$range4 : 750px;
+
 @mixin hover-device {
   @media (hover: hover) and (pointer: fine) {@content;}
 }
 
 @mixin mediaSize($breakpoint){
   @if $breakpoint == large {
-    @media (1150px < width){@content;}
+    @media (min-width : $range1){@content;}
   }
   @else if $breakpoint == medium {
-    @media (1150px >= width > 750px){@content;}
+    @media (max-width : $range2) and (min-width : $range3){@content;}
   }
   @else if $breakpoint == small {
-    @media (750px >= width){@content;}
+    @media (max-width : $range4){@content;}
   }
 }

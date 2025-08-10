@@ -210,13 +210,13 @@
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-@media (1150px >= width > 750px) {
+@media (max-width: 1150px) and (min-width: 751px) {
   .MemoSideBar .innerBox .MemoSideBarList .MemoItem button.btn_delete {
     opacity: 1;
     pointer-events: auto;
   }
 }
-@media (750px >= width) {
+@media (max-width: 750px) {
   .MemoSideBar .innerBox .MemoSideBarList .MemoItem button.btn_delete {
     opacity: 1;
     pointer-events: auto;
@@ -260,7 +260,7 @@
     opacity: 0.7;
   }
 }
-@media (750px >= width) {
+@media (max-width: 750px) {
   .MemoSideBar {
     position: absolute;
     background-color: rgba(249, 248, 253, 0.95);
